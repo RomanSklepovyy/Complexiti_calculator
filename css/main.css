@@ -60,7 +60,11 @@ table {
 table tr td {
     padding: 10px;
     border: 3px solid #AAAAAA;
-    min-height: 70px;
+}
+
+.dev-table tr td {
+    height: 65px;
+    width: 95px;
 }
 
 ul li input[type=radio]{
@@ -123,15 +127,48 @@ ul li .check::before {
     -webkit-transition: background 0.25s linear;
 }
 
-input[type=radio]:checked ~ .check {
+.dev-table-label {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.dev-table-label input {
+    visibility: hidden;
+    position: absolute;
+}
+
+.dev-table-label input, i {
+    color: #AAAAAA;
+    cursor: pointer;
+}
+
+.exp-table-label input {
+    visibility: hidden;
+    position: absolute;
+}
+
+.exp-table-label input, p {
+    cursor: pointer;
+}
+
+.dev-table-label input[type=radio]:checked ~ i {
+    color: #0DFF92;
+}
+
+.exp-table-label input[type=radio]:checked ~ p {
+    color: #0DFF92;
+}
+
+ul input[type=radio]:checked ~ .check {
     border: 5px solid #0DFF92;
 }
 
-input[type=radio]:checked ~ .check::before{
+ul input[type=radio]:checked ~ .check::before{
     background: #0DFF92;
 }
 
-input[type=radio]:checked ~ label{
+ul input[type=radio]:checked ~ label{
     color: #0DFF92;
 }
 
@@ -154,7 +191,7 @@ input[type=radio]:checked ~ label{
     margin: 0 4px;
     height: 10px;
     width: 10px;
-    background: #AC1D3F;
+    background: #14333e;
     border-radius: 4px;
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
@@ -170,7 +207,7 @@ input[type=radio]:checked ~ label{
     height: 10px;
     width: 10px;
     border-radius: 5px;
-    background: #AC1D3F;
+    background: #14333e;
     top: -4px;
 }
 
@@ -185,10 +222,6 @@ input[type=radio]:checked ~ label{
     text-decoration: none;
     font-weight: bold;
 }
-
-
-/* Styles for alert...
-by the way it is so weird when you look at your code a couple of years after you wrote it XD */
 
 .alert {
     box-sizing: border-box;
@@ -216,4 +249,36 @@ by the way it is so weird when you look at your code a couple of years after you
 .alert a {
     color: #232323;
     font-weight: bold;
+}
+
+.calculate_button {
+    width: 200px;
+    height: 40px;
+    text-decoration: none;
+    color: #AAAAAA;
+    text-align: center;
+    line-height: 20px;
+    display: block;
+    margin: 20px auto;
+    font-size: 17px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.calculate_button:not(.active) {
+    box-shadow: inset 0 1px 1px rgba(23, 82, 85, 0.8), inset 0 -1px 0px rgba(16, 43, 52, 0.85), 0 9px 16px 0 rgba(13, 30, 33, 0.84), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+    background-image: linear-gradient(#344a33, rgba(15, 53, 17, 0.79));
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 rgba(5, 20, 29, 0.93);
+}
+
+.calculate_button:not(.active):hover,
+.calculate_button:not(.active):focus {
+    transition: color 200ms linear, text-shadow 500ms linear;
+    color: #fff;
+    background-image: linear-gradient(#5e895d, rgba(2, 86, 1, 0.79));
+}
+.calculate_button:not(:hover) {
+    transition: 0.6s;
 }
