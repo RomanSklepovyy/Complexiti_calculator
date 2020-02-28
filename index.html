@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="alert">
+    <h2>Розрахунок трудомісткості розробки програмного продукту</h2>
+    <p> Для обрахунку були використані формули з СOCOMO II (Методика COCOMO дозволяє оцінити
+        трудомісткістьі час розробки програмного продукту. В моделі використовується формула
+        регресії з параметрами, визначеними на основі галузевих даних і характеристик
+        конкретного проекту.)</p>
+</div>
+
+<div class="container">
+
+    <h3>Масштаб об'єкту автоматизації:</h3>
+
+    <ul>
+        <li>
+            <input type="radio" id="k1-1" name="k1">
+            <label for="k1-1">Автоматизація
+                бізнес процесу одного структурного
+                підрозділу</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k1-2" name="k1">
+            <label for="k1-2">Автоматизація бізнес-процесів
+                одного відомства</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k1-3" name="k1">
+            <label for="k1-3">Автоматизація бізнес-процесів
+                одного відомства з територіальними
+                підрозділами</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k1-4" name="k1">
+            <label for="k1-4">Автоматизація бізнес-процесів
+                відомства і інтеграція з зовнішніми
+                інформаційними системами</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k1-5" name="k1">
+            <label for="k1-5">Автоматизація бізнес-процесів
+                декількох відомств</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k1-6" name="k1">
+            <label for="k1-6">Автоматизація бізнес-процесів
+                декількох відомств і інтеграція з
+                зовнішніми інформаційними
+                системами</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+    </ul>
+</div>
+
+<div class="container">
+
+    <h3>Тип замовника:</h3>
+
+    <ul>
+        <li>
+            <input type="radio" id="k2-1" name="k2">
+            <label for="k2-1">Місцевий виконавчий
+                орган</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k2-2" name="k2">
+            <label for="k2-2">Центральний
+                державний орган </label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k2-3" name="k2">
+            <label for="k2-3">Державний орган,
+                діяльність якого
+                пов’язана з небезпекою
+                для життя</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+    </ul>
+</div>
+
+<div class="container">
+
+    <h3>Тип програмного забезпечення:</h3>
+
+    <ul>
+        <li>
+            <input type="radio" id="k3-1" name="k3">
+            <label for="k3-1">Готове програмне
+                забезпечення, яке потребує
+                налаштування</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k3-2" name="k3">
+            <label for="k3-2">База даних</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k3-3" name="k3" value="">
+            <label for="k3-3">Клієнт-серверне
+                (товстий клієнт)</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k3-4" name="k3">
+            <label for="k3-4">Клієнт-серверне
+                (тонкий клієнт)</label>
+
+            <div class="check"></div>
+        </li>
+
+        <li>
+            <input type="radio" id="k3-5" name="k3">
+            <label for="k3-5">Сервіс-орієнтоване</label>
+
+            <div class="check"><div class="inside"></div></div>
+        </li>
+
+    </ul>
+</div>
+
+<div class="container">
+    <table>
+        <tr>
+            <td>Показники розробки</td>
+            <td>Низький рівень</td>
+            <td>Середній рівень</td>
+            <td>Високий рівень</td>
+        </tr>
+        <tr>
+            <td>Передбачуваність проекту для розроблювача</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Гнучкість процесу розробки</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Ступінь знищення ризиків</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Згуртованість команди проекту</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Зрілість процесів в організації
+                розроблювача</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<div class="container-table">
+    <table>
+        <tr>
+            <td>Показники витрат</td>
+            <td>Низький рівень</td>
+            <td>Середній рівень</td>
+            <td>Високий рівень</td>
+        </tr>
+        <tr>
+            <td>пЗгуртованість персоналу</td>
+            <td>плинність персоналу 20%</td>
+            <td>плинність персоналу 12%</td>
+            <td>плинність персоналу 9%</td>
+        </tr>
+        <tr>
+            <td>Надійність і складність прикладного програмного забезпечення</td>
+            <td>Незначна, розмір бази даних маленький</td>
+            <td>Середня, розмір бази даних середній</td>
+            <td>Складна, розмір бази даних великий</td>
+        </tr>
+        <tr>
+            <td>Складність платформи</td>
+            <td>Стабільна платформа. Обмеження по часу виконання і на
+                оперативну пам'ять ≤ 50%</td>
+            <td>Незначна стабільність платформи. Обмеження по часу виконання і на
+                оперативну пам'ять 65%</td>
+            <td>Мінливість платформи. Обмеження по часу виконання і на
+                оперативну пам'ять 80%</td>
+        </tr>
+        <tr>
+            <td>Необхідний рівень повторного використання</td>
+            <td>Необхідність відсутня</td>
+            <td>Багаторазове використання модулів в одному проекті</td>
+            <td>Прикладне програмне забезпечення може використатися в
+                різних проектах однієї організації</td>
+        </tr>
+        <tr>
+            <td>Досвідченість персоналу</td>
+            <td>6 місяців</td>
+            <td>1 рік</td>
+            <td>3 роки</td>
+        </tr>
+        <tr>
+            <td>Використання інструментів</td>
+            <td>набір слабко інтегрованих інструментів розробки
+                програмного забезпечення</td>
+            <td>Набір середньо інтегрованих інструментів для
+                автоматизації основних процесів розробки
+                програмного забезпечення</td>
+            <td>набір сильно інтегрованих інструментів для
+                автоматизації основних процесів
+                розробки програмного забезпечення</td>
+        </tr>
+        <tr>
+            <td>Щільність графіка проекту</td>
+            <td>Ущільнення графіка 85%</td>
+            <td>Ущільнення графіка 100%</td>
+            <td>Ущільнення графіка 130%</td>
+        </tr>
+    </table>
+</div>
+
+<div class="signature">
+    <p>Made with <i class="much-heart"></i> by <a href="https://github.com/RomanSklepovyy">Roman Sklepovyy</a></p>
+</div>
+</body>
+</html>
