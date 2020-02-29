@@ -8,6 +8,32 @@ body, html{
 
 /* ----------------------------------------------------------------------------------------------------- */
 
+.add__name, .add_lang {
+    background-color: #e2e2e2;
+    padding: 10px 10px;
+    margin-right: 10px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.0em;
+    font-weight: 700;
+    color: #494949;
+}
+
+.add_lang {
+    width: 110px;
+    cursor: pointer;
+}
+
+.add__name {
+    width: 280px;
+}
+
+.des__container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 .container{
     display: block;
     position: relative;
@@ -308,3 +334,5 @@ ul input[type=radio]:checked ~ label{
 .calculate_button:not(:hover) {
     transition: 0.6s;
 }
+
+/* -------------------------------------------------------------------------------------------------------*/
