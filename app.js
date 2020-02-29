@@ -9,12 +9,85 @@ const calcController = (function () {
         language_coefficient: 0,
         scale_index: 0,
         expanse_index: 0,
+        complexity_index: 0,
         development_indicators: [],
         expense_factors: []
     };
 
+    function calculateFuncSize() {
+        data.functional_size = Math.pow((data.k1 + data.k2 + data.k3), 2.35);
+    }
 
+    function calculateCodeSize() {
+        data.code_size = (data.functional_size * data.language_coefficient)/1000;
+    }
+
+    function calculateScaleIndex() {
+        let temp = 0;
+
+        for (let i = 0; i < data.development_indicators.length; i++) {
+            temp += data.development_indicators[i];
+        }
+
+        data.scale_index = 0.91 + 0.01 * temp;
+    }
+
+    function calculateExpenseIndex() {
+        let temp = 1;
+
+        for (let i = 0; i < data.development_indicators.length; i++) {
+            temp *= data.expense_factors[i];
+        }
+
+        data.expanse_index = temp;
+    }
+
+    function calculateComplexityIndex() {
+        data.complexity_index = 2.94 * Math.pow(data.code_size, data.scale_index) * data.expanse_index;
+    }
+
+    return {
+
+        setData: function (obj) {
+            data.k1 = obj.scale;
+            data.k2 = obj.customer;
+            data.k3 = obj.type;
+            data.language_coefficient = obj.language;
+            data.development_indicators = obj.dev_table;
+            data.expense_factors = obj.exp_table;
+        },
+
+        calculateComplexity: function () {
+
+            // Calculate functional size
+            calculateFuncSize();
+
+            // Calculate code size
+            calculateCodeSize();
+
+            // Calculate scale index
+            calculateScaleIndex();
+
+            // Calculate expanse index
+            calculateExpenseIndex();
+
+            // Calculate T (complexity index)
+            calculateComplexityIndex();
+        },
+
+        getMessageData: function () {
+            return {
+                complexity: data.complexity_index,
+                code_size: data.code_size,
+                scale: data.scale_index,
+                expense: data.expanse_index
+            }
+        },
+    }
 })();
+
+
+// UI ------------------------------------------------------------------------------------------------------------
 
 const UIController = (function () {
 
@@ -77,72 +150,74 @@ const UIController = (function () {
 
 })();
 
+
+// Controller --------------------------------------------------------------------------------------------
+
 let controller = (function (calcCtrl, UICtrl) {
 
     let translator = new Map();
-    translator.set('others', );
-    translator.set('java', );
-    translator.set('cpp', );
-    translator.set('cs', );
-    translator.set('html', );
-    translator.set('js' );
-    translator.set('css', );
-    translator.set('python', );
+    translator.set('others', 105.0);
+    translator.set('java', 55.0);
+    translator.set('cpp', 53.0);
+    translator.set('cs', 58.0);
+    translator.set('html', 15.0);
+    translator.set('js', 54.0);
+    translator.set('sql', 13.0);
 
-    translator.set('scale-1', );
-    translator.set('scale-2', );
-    translator.set('scale-3', );
-    translator.set('scale-4', );
-    translator.set('scale-5', );
-    translator.set('scale-6', );
+    translator.set('scale-1', 1);
+    translator.set('scale-2', 8);
+    translator.set('scale-3', 9);
+    translator.set('scale-4', 10);
+    translator.set('scale-5', 12);
+    translator.set('scale-6', 13);
 
-    translator.set('customer-1', );
-    translator.set('customer-2', );
-    translator.set('customer-3', );
+    translator.set('customer-1', 8);
+    translator.set('customer-2', 14);
+    translator.set('customer-3', 15);
 
-    translator.set('type-1', );
-    translator.set('type-2', );
-    translator.set('type-3', );
-    translator.set('type-4', );
-    translator.set('type-5', );
+    translator.set('type-1', 1);
+    translator.set('type-2', 6);
+    translator.set('type-3', 8);
+    translator.set('type-4', 11);
+    translator.set('type-5', 15);
 
-    translator.set('dev-table-1-1',);
-    translator.set('dev-table-1-2',);
-    translator.set('dev-table-1-3',);
-    translator.set('dev-table-2-1',);
-    translator.set('dev-table-2-2',);
-    translator.set('dev-table-2-3',);
-    translator.set('dev-table-3-1',);
-    translator.set('dev-table-3-2',);
-    translator.set('dev-table-3-3',);
-    translator.set('dev-table-4-1',);
-    translator.set('dev-table-4-2',);
-    translator.set('dev-table-4-3',);
-    translator.set('dev-table-5-1',);
-    translator.set('dev-table-5-2',);
-    translator.set('dev-table-5-3',);
+    translator.set('dev-table-1-1', 4.96);
+    translator.set('dev-table-1-2', 3.72);
+    translator.set('dev-table-1-3', 2.48);
+    translator.set('dev-table-2-1', 4.05);
+    translator.set('dev-table-2-2', 3.04);
+    translator.set('dev-table-2-3', 2.03);
+    translator.set('dev-table-3-1', 5.65);
+    translator.set('dev-table-3-2', 4.24);
+    translator.set('dev-table-3-3', 2.83);
+    translator.set('dev-table-4-1', 4.38);
+    translator.set('dev-table-4-2', 3.29);
+    translator.set('dev-table-4-3', 2.19);
+    translator.set('dev-table-5-1', 6.24);
+    translator.set('dev-table-5-2', 4.68);
+    translator.set('dev-table-5-3', 3.12);
 
-    translator.set('exp-table-1-1',);
-    translator.set('exp-table-1-2',);
-    translator.set('exp-table-1-3',);
-    translator.set('exp-table-2-1',);
-    translator.set('exp-table-2-2',);
-    translator.set('exp-table-2-3',);
-    translator.set('exp-table-3-1',);
-    translator.set('exp-table-3-2',);
-    translator.set('exp-table-3-3',);
-    translator.set('exp-table-4-1',);
-    translator.set('exp-table-4-2',);
-    translator.set('exp-table-4-3',);
-    translator.set('exp-table-5-1',);
-    translator.set('exp-table-5-2',);
-    translator.set('exp-table-5-3',);
-    translator.set('exp-table-6-1',);
-    translator.set('exp-table-6-2',);
-    translator.set('exp-table-6-3',);
-    translator.set('exp-table-7-1',);
-    translator.set('exp-table-7-2',);
-    translator.set('exp-table-7-3',);
+    translator.set('exp-table-1-1', 1.2);
+    translator.set('exp-table-1-2', 1.0);
+    translator.set('exp-table-1-3', 0.83);
+    translator.set('exp-table-2-1', 0.83);
+    translator.set('exp-table-2-2', 1.0);
+    translator.set('exp-table-2-3', 1.33);
+    translator.set('exp-table-3-1', 0.87);
+    translator.set('exp-table-3-2', 1.0);
+    translator.set('exp-table-3-3', 1.29);
+    translator.set('exp-table-4-1', 0.95);
+    translator.set('exp-table-4-2', 1.0);
+    translator.set('exp-table-4-3', 1.07);
+    translator.set('exp-table-5-1', 1.22);
+    translator.set('exp-table-5-2', 1.0);
+    translator.set('exp-table-5-3', 0.87);
+    translator.set('exp-table-6-1', 1.1);
+    translator.set('exp-table-6-2', 1.0);
+    translator.set('exp-table-6-3', 0.87);
+    translator.set('exp-table-7-1', 1.14);
+    translator.set('exp-table-7-2', 1.0);
+    translator.set('exp-table-7-3', 1.0);
 
 
 
@@ -150,32 +225,46 @@ let controller = (function (calcCtrl, UICtrl) {
     let setupEventListeners = function () {
         let DOM = UICtrl.getDOMstrings();
 
-        document.querySelector(DOM.submit_button).addEventListener('click', ctrlAddItem);
+        document.querySelector(DOM.submit_button).addEventListener('click', ctrlAddData);
 
         document.addEventListener('keypress', function (e) {
             if (e.keyCode === 13 || e.which === 13) {
-                ctrlAddItem();
+                ctrlAddData();
             }
         })
     };
 
-    let ctrlAddItem = function () {
+    let ctrlAddData = function () {
 
+        // Get input from the UI
         let input = UICtrl.getInput();
-        console.log(input);
 
-        console.log(isCorrectDataArray(input.dev_table));
-        console.log(isCorrectData(input.name, input.language, input.scale, input.type));
+        //If all data available replace to numbers it
+        let  inputNumbers;
+
+        if (isCorrectData(input.name, input.language, input.scale, input.type)
+                          && isCorrectData(...input.dev_table) && isCorrectData(...input.exp_table)) {
+            inputNumbers = getItemWithNumbers(input);
+
+            // Do calculations
+            calcCtrl.setData(inputNumbers);
+            calcCtrl.calculateComplexity();
+
+            // Display it to the UI
+            console.log(calcCtrl.getMessageData());
+        }
 
     };
 
-    let isCorrectDataArray = function(arr) {
-        for (let i = 0; i < arr.length; i++) {
-            if (!arr[i]) {
-                return false;
-            }
+    let getItemWithNumbers = function(obj) {
+        return {
+            language: translator.get(obj.language),
+            scale: translator.get(obj.scale),
+            customer: translator.get(obj.customer),
+            type: translator.get(obj.type),
+            dev_table: replaceToNumbers(obj.dev_table),
+            exp_table: replaceToNumbers(obj.exp_table)
         }
-        return true;
     };
 
     let isCorrectData = function (...values) {
@@ -185,6 +274,14 @@ let controller = (function (calcCtrl, UICtrl) {
           }
       }
       return true;
+    };
+
+    let replaceToNumbers = function (arr) {
+        let temp = [];
+        for (let i = 0; i < arr.length; i++){
+            temp[i] = translator.get(arr[i]);
+        }
+        return temp;
     };
 
     return {
