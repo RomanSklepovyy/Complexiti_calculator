@@ -2,37 +2,51 @@
 
 body, html{
     height: 100%;
-    background: #222222;
+    background: linear-gradient(to top left, #222222, #434645) no-repeat fixed;
     font-family: 'Lato', sans-serif;
 }
+
+/* ----------------------------------------------------------------------------------------------------- */
 
 .container{
     display: block;
     position: relative;
-    margin: 40px auto;
+    margin: 0 auto;
     height: auto;
     width: 500px;
     padding: 20px;
     overflow: hidden;
-    border-top: 5px solid #AAAAAA;
+    border-top: 10px solid #e2e2e2;
 
+}
+
+.black-container {
+    background: #2b2b2b;
+    display: block;
+    margin: 40px auto;
+    position: relative;
+    width: max-content;
+    padding: 10px 5px;
+    border-radius: 10px;
 }
 
 .container-table {
     display: block;
     position: relative;
-    margin: 40px auto;
+    margin: 0px auto;
     height: auto;
     width: 720px;
     padding: 20px;
     overflow: hidden;
-    border-top: 5px solid #AAAAAA;
+    border-top: 5px solid #e2e2e2;
 }
 
 h3 {
-    color: #AAAAAA;
+    color: #e2e2e2;
     text-align: center;
 }
+
+/* ----------------------------------------------------------------------------------------------------- */
 
 .container ul{
     list-style: none;
@@ -42,7 +56,7 @@ h3 {
 }
 
 ul li{
-    color: #AAAAAA;
+    color: #e2e2e2;
     display: block;
     position: relative;
     float: left;
@@ -51,20 +65,26 @@ ul li{
     border-bottom: 1px solid #333;
 }
 
+/* ----------------------------------------------------------------------------------------------------- */
+
 table {
-    color: #AAAAAA;
+    color: #e2e2e2;
     border-collapse: collapse;
-    border: 3px solid #AAAAAA;
+    border: 3px solid #e2e2e2;
 }
 
 table tr td {
-    padding: 10px;
-    border: 3px solid #AAAAAA;
+    border: 3px solid #e2e2e2;
+}
+
+.exp-table tr td {
+    padding: 5px 10px 5px;
 }
 
 .dev-table tr td {
     height: 65px;
     width: 95px;
+    padding: 10px;
 }
 
 ul li input[type=radio]{
@@ -98,7 +118,7 @@ ul li:hover label{
 ul li .check{
     display: block;
     position: absolute;
-    border: 5px solid #AAAAAA;
+    border: 5px solid #e2e2e2;
     border-radius: 100%;
     height: 15px;
     width: 15px;
@@ -127,6 +147,8 @@ ul li .check::before {
     -webkit-transition: background 0.25s linear;
 }
 
+/* ----------------------------------------------------------------------------------------------------- */
+
 .dev-table-label {
     display: flex;
     justify-content: center;
@@ -139,7 +161,7 @@ ul li .check::before {
 }
 
 .dev-table-label input, i {
-    color: #AAAAAA;
+    color: #e2e2e2;
     cursor: pointer;
 }
 
@@ -172,6 +194,8 @@ ul input[type=radio]:checked ~ label{
     color: #0DFF92;
 }
 
+/* ----------------------------------------------------------------------------------------------------- */
+
 .signature {
     margin: 10px auto;
     padding: 10px 0;
@@ -182,7 +206,7 @@ ul input[type=radio]:checked ~ label{
     text-align: center;
     font-family: Helvetica, Arial, Sans-Serif;
     font-size: 0.85em;
-    color: #AAAAAA;
+    color: #e2e2e2;
 }
 
 .signature .much-heart{
@@ -218,7 +242,7 @@ ul input[type=radio]:checked ~ label{
 }
 
 .signature a {
-    color: #AAAAAA;
+    color: #e2e2e2;
     text-decoration: none;
     font-weight: bold;
 }
@@ -255,7 +279,7 @@ ul input[type=radio]:checked ~ label{
     width: 200px;
     height: 40px;
     text-decoration: none;
-    color: #AAAAAA;
+    color: #e2e2e2;
     text-align: center;
     line-height: 20px;
     display: block;
@@ -266,6 +290,8 @@ ul input[type=radio]:checked ~ label{
     cursor: pointer;
     outline: none;
 }
+
+/* ----------------------------------------------------------------------------------------------------- */
 
 .calculate_button:not(.active) {
     box-shadow: inset 0 1px 1px rgba(23, 82, 85, 0.8), inset 0 -1px 0px rgba(16, 43, 52, 0.85), 0 9px 16px 0 rgba(13, 30, 33, 0.84), 0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;

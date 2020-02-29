@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/font-awesome.css">
-    <title>Title</title>
+    <title>C_Calculator</title>
 </head>
 <body>
 <div class="alert">
@@ -15,330 +15,426 @@
         конкретного проекту.)</p>
 </div>
 
-<div class="container">
+<div class="black-container">
+    <div class="container">
 
-    <h3>Масштаб об'єкту автоматизації:</h3>
+        <h3>Масштаб об'єкту автоматизації:</h3>
 
-    <ul>
-        <li>
-            <input type="radio" id="k1-1" name="k1">
-            <label for="k1-1">Автоматизація
-                бізнес процесу одного структурного
-                підрозділу</label>
+        <ul>
+            <li>
+                <input type="radio" id="scale-1" value="scale-1" name="scale">
+                <label for="scale-1">Автоматизація
+                    бізнес процесу одного структурного
+                    підрозділу</label>
+                <div class="check"></div>
+            </li>
 
-            <div class="check"></div>
-        </li>
+            <li>
+                <input type="radio" id="scale-2" value="scale-2" name="scale">
+                <label for="scale-2">Автоматизація бізнес-процесів
+                    одного відомства</label>
+                <div class="check"><div class="inside"></div></div>
+            </li>
 
-        <li>
-            <input type="radio" id="k1-2" name="k1">
-            <label for="k1-2">Автоматизація бізнес-процесів
-                одного відомства</label>
+            <li>
+                <input type="radio" id="scale-3" value="scale-3" name="scale">
+                <label for="scale-3">Автоматизація бізнес-процесів
+                    одного відомства з територіальними
+                    підрозділами</label>
+                <div class="check"><div class="inside"></div></div>
+            </li>
 
-            <div class="check"><div class="inside"></div></div>
-        </li>
+            <li>
+                <input type="radio" id="scale-4" value="scale-4" name="scale">
+                <label for="scale-4">Автоматизація бізнес-процесів
+                    відомства і інтеграція з зовнішніми
+                    інформаційними системами</label>
+                <div class="check"></div>
+            </li>
 
-        <li>
-            <input type="radio" id="k1-3" name="k1">
-            <label for="k1-3">Автоматизація бізнес-процесів
-                одного відомства з територіальними
-                підрозділами</label>
+            <li>
+                <input type="radio" id="scale-5" value="scale-5" name="scale">
+                <label for="scale-5">Автоматизація бізнес-процесів
+                    декількох відомств</label>
+                <div class="check"><div class="inside"></div></div>
+            </li>
 
-            <div class="check"><div class="inside"></div></div>
-        </li>
+            <li>
+                <input type="radio" id="scale-6" value="scale-6" name="scale">
+                <label for="scale-6">Автоматизація бізнес-процесів
+                    декількох відомств і інтеграція з
+                    зовнішніми інформаційними
+                    системами</label>
 
-        <li>
-            <input type="radio" id="k1-4" name="k1">
-            <label for="k1-4">Автоматизація бізнес-процесів
-                відомства і інтеграція з зовнішніми
-                інформаційними системами</label>
-
-            <div class="check"></div>
-        </li>
-
-        <li>
-            <input type="radio" id="k1-5" name="k1">
-            <label for="k1-5">Автоматизація бізнес-процесів
-                декількох відомств</label>
-
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="k1-6" name="k1">
-            <label for="k1-6">Автоматизація бізнес-процесів
-                декількох відомств і інтеграція з
-                зовнішніми інформаційними
-                системами</label>
-
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-    </ul>
+                <div class="check"><div class="inside"></div></div>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<div class="container">
+<div class="black-container">
+    <div class="container">
 
-    <h3>Тип замовника:</h3>
+        <h3>Тип замовника:</h3>
 
-    <ul>
-        <li>
-            <input type="radio" id="k2-1" name="k2">
-            <label for="k2-1">Місцевий виконавчий
-                орган</label>
+        <ul>
+            <li>
+                <input type="radio" id="customer-1" value="customer-1" name="customer">
+                <label for="customer-1">Місцевий виконавчий
+                    орган</label>
+                <div class="check"></div>
+            </li>
 
-            <div class="check"></div>
-        </li>
+            <li>
+                <input type="radio" id="customer-2" value="customer-2" name="customer">
+                <label for="customer-2">Центральний
+                    державний орган </label>
+                <div class="check"><div class="inside"></div></div>
+            </li>
 
-        <li>
-            <input type="radio" id="k2-2" name="k2">
-            <label for="k2-2">Центральний
-                державний орган </label>
+            <li>
+                <input type="radio" id="customer-3" value="customer-3" name="customer">
+                <label for="customer-3">Державний орган,
+                    діяльність якого
+                    пов’язана з небезпекою
+                    для життя</label>
+                <div class="check"><div class="inside"></div></div>
+            </li>
 
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-        <li>
-            <input type="radio" id="k2-3" name="k2">
-            <label for="k2-3">Державний орган,
-                діяльність якого
-                пов’язана з небезпекою
-                для життя</label>
-
-            <div class="check"><div class="inside"></div></div>
-        </li>
-
-    </ul>
+        </ul>
+    </div>
 </div>
 
-<div class="container">
+<div class="black-container">
+    <div class="container">
 
     <h3>Тип програмного забезпечення:</h3>
 
     <ul>
         <li>
-            <input type="radio" id="k3-1" name="k3">
-            <label for="k3-1">Готове програмне
+            <input type="radio" id="type-1" value="type-1" name="type">
+            <label for="type-1">Готове програмне
                 забезпечення, яке потребує
                 налаштування</label>
-
             <div class="check"></div>
         </li>
 
         <li>
-            <input type="radio" id="k3-2" name="k3">
-            <label for="k3-2">База даних</label>
-
+            <input type="radio" id="type-2" value="type-2" name="type">
+            <label for="type-2">База даних</label>
             <div class="check"><div class="inside"></div></div>
         </li>
 
         <li>
-            <input type="radio" id="k3-3" name="k3" value="">
-            <label for="k3-3">Клієнт-серверне
+            <input type="radio" id="type-3" value="type-3" name="type">
+            <label for="type-3">Клієнт-серверне
                 (товстий клієнт)</label>
-
             <div class="check"><div class="inside"></div></div>
         </li>
 
         <li>
-            <input type="radio" id="k3-4" name="k3">
-            <label for="k3-4">Клієнт-серверне
+            <input type="radio" id="type-4" value="type-4" name="type">
+            <label for="type-4">Клієнт-серверне
                 (тонкий клієнт)</label>
-
             <div class="check"></div>
         </li>
 
         <li>
-            <input type="radio" id="k3-5" name="k3">
-            <label for="k3-5">Сервіс-орієнтоване</label>
-
+            <input type="radio" id="type-5"value="type-5" name="type">
+            <label for="type-5">Сервіс-орієнтоване</label>
             <div class="check"><div class="inside"></div></div>
         </li>
 
     </ul>
+    </div>
 </div>
 
-<div class="container">
-    <table class="dev-table">
-        <tr>
-            <td>Показники розробки</td>
-            <td>Низький рівень</td>
-            <td>Середній рівень</td>
-            <td>Високий рівень</td>
-        </tr>
-        <tr>
-            <td>Передбачуваність проекту для розроблювача</td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-1-1" name="dev-table-1">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-1-2" name="dev-table-1">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-1-3" name="dev-table-1">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td>Гнучкість процесу розробки</td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-2-1" name="dev-table-2">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-2-2" name="dev-table-2">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-2-3" name="dev-table-2">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td>Ступінь знищення ризиків</td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-3-1" name="dev-table-3">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-3-2" name="dev-table-3">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-3-3" name="dev-table-3">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td>Згуртованість команди проекту</td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-4-1" name="dev-table-4">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-4-2" name="dev-table-4">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-4-3" name="dev-table-4">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-        </tr>
-        <tr>
-            <td>Зрілість процесів в організації
-                розроблювача</td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-5-1" name="dev-table-5">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-5-2" name="dev-table-5">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-            <td>
-                <label class="dev-table-label">
-                    <input type="radio" id="dev-table-5-3" name="dev-table-5">
-                    <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
-                </label>
-            </td>
-        </tr>
-    </table>
+<div class="black-container">
+    <div class="container">
+        <table class="dev-table">
+            <tr>
+                <td>Показники розробки</td>
+                <td>Низький рівень</td>
+                <td>Середній рівень</td>
+                <td>Високий рівень</td>
+            </tr>
+            <tr>
+                <td>Передбачуваність проекту для розроблювача</td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-1-1" name="dev-table-1">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-1-2" name="dev-table-1">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-1-3" name="dev-table-1">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Гнучкість процесу розробки</td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-2-1" name="dev-table-2">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-2-2" name="dev-table-2">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-2-3" name="dev-table-2">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Ступінь знищення ризиків</td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-3-1" name="dev-table-3">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-3-2" name="dev-table-3">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-3-3" name="dev-table-3">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Згуртованість команди проекту</td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-4-1" name="dev-table-4">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-4-2" name="dev-table-4">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-4-3" name="dev-table-4">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Зрілість процесів в організації
+                    розроблювача</td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-5-1" name="dev-table-5">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-5-2" name="dev-table-5">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+                <td>
+                    <label class="dev-table-label">
+                        <input type="radio" value="dev-table-5-3" name="dev-table-5">
+                        <i class="fa fa-check-circle-o fa-3x" aria-hidden="true"></i>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
-<div class="container-table">
-    <table>
-        <tr>
-            <td>Показники витрат</td>
-            <td>
-                <label class="exp-table-label">
-                    <input type="radio" id="exp-table-1-1" name="exp-table-1">
-                    <p>Низький рівень</p>
-                </label>
-            </td>
-            <td>Середній рівень</td>
-            <td>Високий рівень</td>
-        </tr>
-        <tr>
-            <td>Згуртованість персоналу</td>
-            <td>плинність персоналу 20%</td>
-            <td>плинність персоналу 12%</td>
-            <td>плинність персоналу 9%</td>
-        </tr>
-        <tr>
-            <td>Надійність і складність прикладного програмного забезпечення</td>
-            <td>Незначна, розмір бази даних маленький</td>
-            <td>Середня, розмір бази даних середній</td>
-            <td>Складна, розмір бази даних великий</td>
-        </tr>
-        <tr>
-            <td>Складність платформи</td>
-            <td>Стабільна платформа. Обмеження по часу виконання і на
-                оперативну пам'ять ≤ 50%</td>
-            <td>Незначна стабільність платформи. Обмеження по часу виконання і на
-                оперативну пам'ять 65%</td>
-            <td>Мінливість платформи. Обмеження по часу виконання і на
-                оперативну пам'ять 80%</td>
-        </tr>
-        <tr>
-            <td>Необхідний рівень повторного використання</td>
-            <td>Необхідність відсутня</td>
-            <td>Багаторазове використання модулів в одному проекті</td>
-            <td>Прикладне програмне забезпечення може використатися в
-                різних проектах однієї організації</td>
-        </tr>
-        <tr>
-            <td>Досвідченість персоналу</td>
-            <td>6 місяців</td>
-            <td>1 рік</td>
-            <td>3 роки</td>
-        </tr>
-        <tr>
-            <td>Використання інструментів</td>
-            <td>набір слабко інтегрованих інструментів розробки
-                програмного забезпечення</td>
-            <td>Набір середньо інтегрованих інструментів для
-                автоматизації основних процесів розробки
-                програмного забезпечення</td>
-            <td>набір сильно інтегрованих інструментів для
-                автоматизації основних процесів
-                розробки програмного забезпечення</td>
-        </tr>
-        <tr>
-            <td>Щільність графіка проекту</td>
-            <td>Ущільнення графіка 85%</td>
-            <td>Ущільнення графіка 100%</td>
-            <td>Ущільнення графіка 130%</td>
-        </tr>
-    </table>
+<div class="black-container">
+        <div class="container-table">
+        <table class="exp-table">
+            <tr>
+                <td>Показники витрат</td>
+                <td>Низький рівень</td>
+                <td>Середній рівень</td>
+                <td>Високий рівень</td>
+            </tr>
+            <tr>
+                <td>Згуртованість персоналу</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-1-1" name="exp-table-1">
+                        <p>плинність персоналу 20%</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-1-2" name="exp-table-1">
+                        <p>плинність персоналу 12%</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-1-3" name="exp-table-1">
+                        <p>плинність персоналу 9%</p>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Надійність і складність прикладного програмного забезпечення</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-2-1" name="exp-table-2">
+                        <p>Незначна, розмір бази даних маленький</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-2-2" name="exp-table-2">
+                        <p>Середня, розмір бази даних середній</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-2-3" name="exp-table-2">
+                        <p>Складна, розмір бази даних великий</p>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Складність платформи</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-3-1" name="exp-table-3">
+                        <p>Стабільна платформа. Обмеження по часу виконання і на
+                            оперативну пам'ять ≤ 50%</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-3-2" name="exp-table-3">
+                        <p>Незначна стабільність платформи. Обмеження по часу виконання і на
+                            оперативну пам'ять 65%</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-3-3" name="exp-table-3">
+                        <p>Мінливість платформи. Обмеження по часу виконання і на
+                            оперативну пам'ять 80%</p>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Необхідний рівень повторного використання</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-4-1" name="exp-table-4">
+                        <p>Необхідність відсутня</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-4-2" name="exp-table-4">
+                        <p>Багаторазове використання модулів в одному проекті</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-4-3" name="exp-table-4">
+                        <p>Прикладне програмне забезпечення може використатися в
+                            різних проектах однієї організації</p>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Досвідченість персоналу</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-5-1" name="exp-table-5">
+                        <p>6 місяців</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-5-2" name="exp-table-5">
+                        <p>1 рік</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-5-3" name="exp-table-5">
+                        <p>3 роки</p>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Використання інструментів</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-6-1" name="exp-table-6">
+                        <p>набір слабко інтегрованих інструментів розробки
+                            програмного забезпечення</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-6-2" name="exp-table-6">
+                        <p>Набір середньо інтегрованих інструментів для
+                            автоматизації основних процесів розробки
+                            програмного забезпечення</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-6-3" name="exp-table-6">
+                        <p>набір сильно інтегрованих інструментів для
+                            автоматизації основних процесів
+                            розробки програмного забезпечення</p>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Щільність графіка проекту</td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-7-1" name="exp-table-7">
+                        <p>Ущільнення графіка 85%</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-7-2" name="exp-table-7">
+                        <p>Ущільнення графіка 100%</p>
+                    </label>
+                </td>
+                <td>
+                    <label class="exp-table-label">
+                        <input type="radio" value="exp-table-7-3" name="exp-table-7">
+                        <p>Ущільнення графіка 130%</p>
+                    </label>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div> <button class="calculate_button">Розрахувати</button> </div>
@@ -346,5 +442,6 @@
 <div class="signature">
     <p>Made with <i class="much-heart"></i> by <a href="https://github.com/RomanSklepovyy">Roman Sklepovyy</a></p>
 </div>
+<script src="app.js"></script>
 </body>
 </html>
