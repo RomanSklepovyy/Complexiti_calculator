@@ -111,6 +111,24 @@ const UIController = (function () {
         return mass;
     }
 
+    function setCheckedFalse(...arr) {
+        let temp = [];
+
+        for (let i = 0; i < arr.length; i++) {
+
+            temp = document.getElementsByName(arr[i]);
+
+            for (let i = 0; i < temp.length; i++) {
+                if (temp[i].checked) {
+                    temp[i].checked = false;
+                    break;
+                }
+            }
+        }
+    }
+
+
+
     function getCheckedValue(name) {
         let list = document.getElementsByName(name);
 
@@ -141,6 +159,15 @@ const UIController = (function () {
                 dev_table: getCheckedValues(DOMstrings.dev_table_names),
                 exp_table: getCheckedValues(DOMstrings.exp_table_names)
             }
+        },
+
+        clearData: function() {
+
+            setCheckedFalse(DOMstrings.scale_name, DOMstrings.customer_name, DOMstrings.type_name,
+                ...DOMstrings.dev_table_names, ...DOMstrings.exp_table_names);
+
+            document.querySelector(DOMstrings.name).value = '';
+            document.querySelector(DOMstrings.language).value = 'others';
         },
 
         displayResult: function(obj) {
@@ -273,6 +300,9 @@ let controller = (function (calcCtrl, UICtrl) {
             // Do calculations
             calcCtrl.setData(inputNumbers);
             calcCtrl.calculateComplexity();
+
+            //Clear fields
+            UICtrl.clearData();
 
             // Display it to the UI
             UICtrl.displayResult(calcCtrl.getMessageData());
