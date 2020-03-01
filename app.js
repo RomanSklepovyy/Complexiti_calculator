@@ -99,8 +99,8 @@ const UIController = (function () {
         customer_name: 'customer',
         type_name: 'type',
         dev_table_names: getNameMass('dev-table-', 5),
-        exp_table_names: getNameMass('exp-table-', 7)
-
+        exp_table_names: getNameMass('exp-table-', 7),
+        last_container: '.last_container'
     };
 
     function getNameMass(string, amount) {
@@ -141,6 +141,30 @@ const UIController = (function () {
                 dev_table: getCheckedValues(DOMstrings.dev_table_names),
                 exp_table: getCheckedValues(DOMstrings.exp_table_names)
             }
+        },
+
+        displayResult: function(obj) {
+            let html, newHtml, element;
+
+            element = DOMstrings.last_container;
+
+            html = '<div class="alert_result">\n' +
+                    '    <h2>Результат розрахунку:</h2>\n' +
+                    '    <p>Очікувана кількість рядків коду: %size% (тис. логічних рядків вихідного коду)</p>\n' +
+                    '    <p>Показник витрат: %exp%</p>\n' +
+                    '    <p>Показник масштабу: %scale%</p>\n' +
+                    '    <p>Трудомісткість розробки: %complexity% (людино-місяці)</p>\n' +
+                    '</div>';
+
+
+            // Replace placeholder text
+            newHtml = html.replace('%size%', obj.code_size.toFixed(3));
+            newHtml = newHtml.replace('%exp%', obj.expense.toFixed(3));
+            newHtml = newHtml.replace('%scale%', obj.scale.toFixed(3));
+            newHtml = newHtml.replace('%complexity%', obj.complexity.toFixed(3));
+
+            // Insert the HTML into the DOM
+            document.querySelector(element).insertAdjacentHTML('afterend', newHtml);
         },
 
         getDOMstrings: function () {
@@ -251,7 +275,7 @@ let controller = (function (calcCtrl, UICtrl) {
             calcCtrl.calculateComplexity();
 
             // Display it to the UI
-            console.log(calcCtrl.getMessageData());
+            UICtrl.displayResult(calcCtrl.getMessageData());
         }
 
     };
