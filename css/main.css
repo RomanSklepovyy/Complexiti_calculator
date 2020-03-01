@@ -43,7 +43,10 @@ body, html{
     padding: 20px;
     overflow: hidden;
     border-top: 10px solid #e2e2e2;
+}
 
+.error {
+    border-top: 10px solid #b6210d !important;
 }
 
 .black-container {

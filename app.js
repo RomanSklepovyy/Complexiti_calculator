@@ -100,7 +100,11 @@ const UIController = (function () {
         type_name: 'type',
         dev_table_names: getNameMass('dev-table-', 5),
         exp_table_names: getNameMass('exp-table-', 7),
-        last_container: '.last_container'
+        last_container: '.last_container',
+        error: 'error',
+        scale_class: '.scale',
+        customer_class: '.customer',
+        type_class: '.type'
     };
 
     function getNameMass(string, amount) {
@@ -170,13 +174,13 @@ const UIController = (function () {
             document.querySelector(DOMstrings.language).value = 'others';
         },
 
-        displayResult: function(obj) {
+        displayResult: function(name, obj) {
             let html, newHtml, element;
 
             element = DOMstrings.last_container;
 
             html = '<div class="alert_result">\n' +
-                    '    <h2>Результат розрахунку:</h2>\n' +
+                    '    <h2>Результат розрахунку для "%name%":</h2>\n' +
                     '    <p>Очікувана кількість рядків коду: %size% (тис. логічних рядків вихідного коду)</p>\n' +
                     '    <p>Показник витрат: %exp%</p>\n' +
                     '    <p>Показник масштабу: %scale%</p>\n' +
@@ -185,13 +189,26 @@ const UIController = (function () {
 
 
             // Replace placeholder text
-            newHtml = html.replace('%size%', obj.code_size.toFixed(3));
+            newHtml = html.replace('%name%', name);
+            newHtml = newHtml.replace('%size%', obj.code_size.toFixed(3));
             newHtml = newHtml.replace('%exp%', obj.expense.toFixed(3));
             newHtml = newHtml.replace('%scale%', obj.scale.toFixed(3));
             newHtml = newHtml.replace('%complexity%', obj.complexity.toFixed(3));
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('afterend', newHtml);
+        },
+
+        displayError: function(input) {
+            if (!input.name) document.querySelector(DOMstrings.name).parentNode.parentNode.classList.add(DOMstrings.error);
+            if (!input.scale) document.querySelector(DOMstrings.scale_class).classList.add(DOMstrings.error);
+            if (!input.customer) document.querySelector(DOMstrings.customer_class).classList.add(DOMstrings.error);
+            if (!input.type) document.querySelector(DOMstrings.type_class).classList.add(DOMstrings.error);
+
+            document.querySelector('.error').scrollIntoView(true);
+            window.scrollBy(0, -50);
+
+
         },
 
         getDOMstrings: function () {
@@ -293,8 +310,10 @@ let controller = (function (calcCtrl, UICtrl) {
         //If all data available replace to numbers it
         let  inputNumbers;
 
+        // If data is true do calc else find and display error
         if (isCorrectData(input.name, input.language, input.scale, input.type)
                           && isCorrectData(...input.dev_table) && isCorrectData(...input.exp_table)) {
+
             inputNumbers = getItemWithNumbers(input);
 
             // Do calculations
@@ -305,8 +324,12 @@ let controller = (function (calcCtrl, UICtrl) {
             UICtrl.clearData();
 
             // Display it to the UI
-            UICtrl.displayResult(calcCtrl.getMessageData());
+            UICtrl.displayResult(input.name, calcCtrl.getMessageData());
+
+        } else {
+            UICtrl.displayError(input);
         }
+
 
     };
 
