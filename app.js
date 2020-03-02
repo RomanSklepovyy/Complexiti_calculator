@@ -102,9 +102,12 @@ const UIController = (function () {
         exp_table_names: getNameMass('exp-table-', 7),
         last_container: '.last_container',
         error: 'error',
+        error_class: '.error',
         scale_class: '.scale',
         customer_class: '.customer',
-        type_class: '.type'
+        type_class: '.type',
+        dev_table: '.dev-table',
+        exp_table: '.exp-table'
     };
 
     function getNameMass(string, amount) {
@@ -201,14 +204,31 @@ const UIController = (function () {
 
         displayError: function(input) {
             if (!input.name) document.querySelector(DOMstrings.name).parentNode.parentNode.classList.add(DOMstrings.error);
-            if (!input.scale) document.querySelector(DOMstrings.scale_class).classList.add(DOMstrings.error);
+            if (!input.scale || !input.language) document.querySelector(DOMstrings.scale_class).classList.add(DOMstrings.error);
             if (!input.customer) document.querySelector(DOMstrings.customer_class).classList.add(DOMstrings.error);
             if (!input.type) document.querySelector(DOMstrings.type_class).classList.add(DOMstrings.error);
 
-            document.querySelector('.error').scrollIntoView(true);
-            window.scrollBy(0, -50);
+            for (let i = 0; i < input.dev_table.length; i ++) {
+                if (!input.dev_table[i]) {
+                    document.querySelector(DOMstrings.dev_table).parentNode.classList.add(DOMstrings.error);
+                }
+            }
 
+            for (let i = 0; i < input.exp_table.length; i ++) {
+                if (!input.exp_table[i]) {
+                    document.querySelector(DOMstrings.exp_table).parentNode.classList.add(DOMstrings.error);
+                }
+            }
 
+            if (document.querySelector(DOMstrings.error_class)) document.querySelector(DOMstrings.error_class).scrollIntoView({behavior: "smooth", block:"center"});
+        },
+
+        removeErrors: function() {
+            let errors = document.querySelectorAll(DOMstrings.error_class);
+
+            for (let i = 0; i <  errors.length; i++) {
+                errors[i].classList.remove(DOMstrings.error);
+            }
         },
 
         getDOMstrings: function () {
@@ -302,6 +322,9 @@ let controller = (function (calcCtrl, UICtrl) {
         })
     };
 
+    // Clear errors
+    UICtrl.removeErrors();
+
     let ctrlAddData = function () {
 
         // Get input from the UI
@@ -311,7 +334,7 @@ let controller = (function (calcCtrl, UICtrl) {
         let  inputNumbers;
 
         // If data is true do calc else find and display error
-        if (isCorrectData(input.name, input.language, input.scale, input.type)
+        if (isCorrectData(input.name, input.language, input.scale, input.type, input.customer)
                           && isCorrectData(...input.dev_table) && isCorrectData(...input.exp_table)) {
 
             inputNumbers = getItemWithNumbers(input);
