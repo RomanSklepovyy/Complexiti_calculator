@@ -107,7 +107,8 @@ const UIController = (function () {
         customer_class: '.customer',
         type_class: '.type',
         dev_table: '.dev-table',
-        exp_table: '.exp-table'
+        exp_table: '.exp-table',
+        result_class: '.alert_result'
     };
 
     function getNameMass(string, amount) {
@@ -200,9 +201,11 @@ const UIController = (function () {
 
             // Insert the HTML into the DOM
             document.querySelector(element).insertAdjacentHTML('afterend', newHtml);
+            document.querySelector(DOMstrings.result_class).scrollIntoView({behavior: "smooth", block: "center"})
         },
 
         displayError: function(input) {
+
             if (!input.name) document.querySelector(DOMstrings.name).parentNode.parentNode.classList.add(DOMstrings.error);
             if (!input.scale || !input.language) document.querySelector(DOMstrings.scale_class).classList.add(DOMstrings.error);
             if (!input.customer) document.querySelector(DOMstrings.customer_class).classList.add(DOMstrings.error);
@@ -322,10 +325,11 @@ let controller = (function (calcCtrl, UICtrl) {
         })
     };
 
-    // Clear errors
-    UICtrl.removeErrors();
 
     let ctrlAddData = function () {
+
+        // Clear errors
+        UICtrl.removeErrors();
 
         // Get input from the UI
         let input = UICtrl.getInput();
@@ -350,6 +354,7 @@ let controller = (function (calcCtrl, UICtrl) {
             UICtrl.displayResult(input.name, calcCtrl.getMessageData());
 
         } else {
+            console.log(input);
             UICtrl.displayError(input);
         }
 
