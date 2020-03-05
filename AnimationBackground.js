@@ -7,16 +7,17 @@
     var particles = [];
 
     var properties = {
-        bgColor : 'rgba(17,17,19,1)',
-        particleColour : 'rgba(255, 40, 40, 1)',
-        particleRadius : 3,
+        bgColor : 'rgba(10,10,12,0)',
+        particleColour : 'rgb(135,135,135)',
+        particleRadius : 4,
         particleCount : 60,
         particleMaxVelocity: 0.35,
         lineLength : 150,
-        particleLife : 8
+        particleLife : 8,
+        lineWidth : 2
     };
 
-    document.querySelector('body').appendChild(canvas);
+    //document.querySelector('body').appendChild(canvas);
 
     window.onresize = function () {
         w = canvas.width = innerWidth;
@@ -86,8 +87,8 @@
 
                 if (length < properties.lineLength) {
                     opacity = 1 - length/properties.lineLength;
-                    ctx.lineWidth = '0.5';
-                    ctx.strokeStyle = 'rgba(255, 40, 40, ' + opacity + ')';
+                    ctx.lineWidth = properties.lineWidth;
+                    ctx.strokeStyle = 'rgba(135, 135, 135, ' + opacity + ')';
                     ctx.beginPath();
                     ctx.moveTo(x1, y1);
                     ctx.lineTo(x2, y2);
@@ -107,9 +108,11 @@
     }
 
     function loop() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         reDrawBackground();
         reDrawParticles();
         drawLines();
+        document.body.style.background = 'url(' + canvas.toDataURL() + ') no-repeat fixed';
         requestAnimationFrame(loop);
     }
 
@@ -123,4 +126,5 @@
     }
 
     init();
+
 })();

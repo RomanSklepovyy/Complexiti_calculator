@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-body, html{
+html {
+    background: linear-gradient(to top left, #222222, #434645) no-repeat fixed;
+}
+
+body {
     height: 100%;
     background: linear-gradient(to top left, #222222, #434645) no-repeat fixed;
     font-family: 'Lato', sans-serif;
     margin: 0;
 }
-
 
 /* ----------------------------------------------------------------------------------------------------- */
 
@@ -289,7 +292,6 @@ ul input[type=radio]:checked ~ label{
 
 .alert_result {
     background-color: #BDFFE1;
-    color: #333;
     display: block;
     margin: 40px auto;
     position: relative;
